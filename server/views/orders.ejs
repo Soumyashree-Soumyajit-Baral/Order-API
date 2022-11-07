@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <h1>Orders</h1>
+</div>
+    <div>
+        <table>
+            <tr>
+                <th>Customer ID</th>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+            </tr>
+            <% for(let i=0;i<orders.length;i++){ %>
+                <tr>
+                    <td><%= orders[i].customerid %></td>
+                    <td><%= orders[i].productid %></td>
+                    <td><%= orders[i].productname %></td>
+                    <td><%= orders[i].quantity %></td>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+
+</body>
+</html>
