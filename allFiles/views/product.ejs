@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <h1>Product Info</h1>
+</div>
+    <div>
+        <table>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Type</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Available Quantity</th>
+            </tr>
+            <% for(let i=0;i<prodinfo.length;i++){ %>
+                <tr>
+                    <td><%= prodinfo[i].productid %></td>
+                    <td><%= prodinfo[i].producttype %></td>
+                    <td><%= prodinfo[i].productname %></td>
+                    <td><%= prodinfo[i].productprice %></td>
+                    <td><%= prodinfo[i].availablequantity %></td>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -42,7 +42,7 @@ app.post("/orders",async(req,res)=>{
                     productname:req.body.productname,
                     quantity:req.body.quantity
                 }).then(async()=>{
-                    await productModel.updateOne({productname:req.body.productname},{$set:{availablequantity:acount}})
+                    productModel.updateOne({productname:req.body.productname},{$set:{availablequantity:acount}})
                     res.send("order placed sucessfully")
                 }).catch((err)=>{
                     res.send(err.message)
@@ -107,11 +107,9 @@ app.get("/orders/:id",(req,res)=>{
 })
 
 
-app.put("/product/:id/:name",(req,res)=>{
-    console.log(typeof(req.params.name))
-    let aq=Number(req.params.name)
-    console.log(typeof(aq))
-    productModel.updateOne({productname:req.params.id},{$set:{availablequantity:aq}}).then(()=>{
+app.put("/orders/:id/:name",(req,res)=>{
+    console.log(req.params.name)
+    productModel.updateOne({productname:req.params.id},{$set:{productprice:req.params.name}}).then(()=>{
         res.send("price updated sucessfully")
     }).catch((err)=>{
         res.send(err.message)
@@ -119,8 +117,7 @@ app.put("/product/:id/:name",(req,res)=>{
 })
 app.put("/customer/:id/:name",(req,res)=>{
     console.log(req.params.name)
-    let cost=Number(req.params.name)
-    customerModel.updateOne({email:req.params.id},{$set:{balance:cost}}).then(()=>{
+    customerModel.updateOne({email:req.params.id},{$set:{balance:req.params.name}}).then(()=>{
         res.send("price updated sucessfully")
     }).catch((err)=>{
         res.send(err.message)
